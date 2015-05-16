@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rapunzel</title>
+	<LINK href="styles.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+</head>
+<body>
+<div id="main">
+	<div id="text1"></div>
+	<div id="text2"></div>
+	<div id="text3"></div>
+	<div id="text4"></div>
+	<div id="text5"></div>
+	<div id="text6"></div>
+	<div id="text7"></div>
+	<div id="text8"></div>
+	<div id="text9"></div>
+	<div id="text10"></div>
+	<div id="text11"></div>
+	<div id="text12"></div>
+	<div id="text13"></div>
+	<div id="text14"></div>
+	<div id="bg1" class="bgImage"></div>
+	<div id="bg2" class="bgImage"></div>
+	<div id="bg3" class="bgImage"></div>
+	<div id="bg4" class="bgImage"></div>
+	<div id="bg5" class="bgImage"></div>
+	<div id="bg6"></div>
+</div>
+
+<script type="text/javascript">
+
+var animation1 = 0;
+var animation2 = 0;
+var animation3 = 0;
+var animation4 = 0;
+var animation5 = 0;
+var animation6 = 0;
+var animation7 = 0;
+var animation8 = 0;
+var animation9 = 0;
+var animation10 = 0;
+var animation11 = 0;
+var animation12 = 0;
+var animation13 = 0;
+var animation14 = 0;
+
+$(window).scroll(function() {
+       var position1 = $(window).scrollTop();
+       // scroll animation 1
+       if ( position1 > 30 && position1 < 100 ) {
+       		if (animation1 == 0){
+       			animation1 = 1;
+			   $('#text1').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation1 == 1){
+       			animation1 = 0;
+			   $('#text1').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 1
+       
+       // Copy this chunk
+       if ( position1 > 100 && position1 < 170 ) {
+       		if (animation2 == 0){
+       			animation2 = 1;
+			   $('#text2').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation2 == 1){
+       			animation2 = 0;
+			   $('#text2').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 2
+       
+       if ( position1 > 170 && position1 < 270 ) {
+       		if (animation3 == 0){
+       			animation3 = 1;
+			   $('#text3').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation3 == 1){
+       			animation3 = 0;
+			   $('#text3').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 3
+       
+        if ( position1 > 270 && position1 < 370 ) {
+       		if (animation4 == 0){
+       			animation4 = 1;
+			   $('#text4').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation4 == 1){
+       			animation4 = 0;
+			   $('#text4').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 4
+       
+        if ( position1 > 370 && position1 < 470 ) {
+       		if (animation5 == 0){
+       			animation5 = 1;
+			   $('#text5').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation5 == 1){
+       			animation5 = 0;
+			   $('#text5').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 5
+       
+        if ( position1 > 470 && position1 < 570 ) {
+       		if (animation6 == 0){
+       			animation6 = 1;
+			   $('#text6').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation6 == 1){
+       			animation6 = 0;
+			   $('#text6').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 6
+       
+        if ( position1 > 620 && position1 < 700 ) {
+       		if (animation7 == 0){
+       			animation7 = 1;
+			   $('#text7').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation7 == 1){
+       			animation7 = 0;
+			   $('#text7').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 7
+       
+        if ( position1 > 700 && position1 < 800 ) {
+       		if (animation8 == 0){
+       			animation8 = 1;
+			   $('#text8').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation8 == 1){
+       			animation8 = 0;
+			   $('#text8').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 8
+       
+        if ( position1 > 1000 && position1 < 1200 ) {
+       		if (animation9 == 0){
+       			animation9 = 1;
+			   $('#text9').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation9 == 1){
+       			animation9 = 0;
+			   $('#text9').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 9
+       
+        if ( position1 > 1500 && position1 < 1700 ) {
+       		if (animation10 == 0){
+       			animation10 = 1;
+			   $('#text10').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation10 == 1){
+       			animation10 = 0;
+			   $('#text10').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 10
+       
+        if ( position1 > 1750 && position1 < 1850 ) {
+       		if (animation11 == 0){
+       			animation11 = 1;
+			   $('#text11').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation11 == 1){
+       			animation11 = 0;
+			   $('#text11').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 11
+       
+        if ( position1 > 1900 && position1 < 2000 ) {
+       		if (animation12 == 0){
+       			animation12 = 1;
+			   $('#text12').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation12 == 1){
+       			animation12 = 0;
+			   $('#text12').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 12
+       
+        if ( position1 > 2000 && position1 < 2100 ) {
+       		if (animation13 == 0){
+       			animation13 = 1;
+			   $('#text13').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation13 == 1){
+       			animation13 = 0;
+			   $('#text13').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 13
+       
+        if ( position1 > 2100 && position1 < 3000 ) {
+       		if (animation14 == 0){
+       			animation14 = 1;
+			   $('#text14').fadeIn(300, function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 } // ends switch if
+       } // ends position if
+       else {	
+       		if (animation14 == 1){
+       			animation14 = 0;
+			   $('#text14').fadeOut('slow', function() {
+			   		// this happens when the .fadeOut is complete
+				});
+			 }
+       } // ending scroll animation 14
+       
+       
+       
+       
+ });
+</script>
+</body>
+</html>

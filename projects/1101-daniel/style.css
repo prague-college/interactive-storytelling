@@ -1,0 +1,125 @@
+body {
+background-image: url("images/hrabe.jpg");
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-position:center; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+font-family: helvetica, sans-serif;
+}
+
+img {
+border: none;
+}
+
+/* Layout starts */
+
+#layout {
+overflow: hidden;
+width: 1100px;
+margin: 0 auto;
+}
+
+#leftcol {
+width: 250px;
+float: left;
+min-height: 20px;
+}
+
+#cencol {
+width: 600px;
+float: left;
+}
+
+#rightcol {
+width: 250px;
+float: left;
+min-height: 20px;
+}
+
+/* Layout ends */
+
+.gif {
+/* float: right; */
+display: block;
+margin-left:auto;
+margin-right:auto;
+margin: 20px;
+border: 30px solid #fff;
+}
+
+#header {
+float: left;
+margin: 40px 20px 60px 20px;
+}
+
+#text1 {
+margin: 370px 0px 0px 0px;
+display: none;
+}
+
+#text2 {
+margin: 820px 0px 0px 0px;
+display: none;
+}
+
+#text3 {
+margin: 1250px 0px 0px 0px;
+display: none;
+}
+
+#text4 {
+margin: 1650px 0px 0px 0px;
+display: none;
+}
+
+#text5 {
+margin: 2070px 0px 0px 0px;
+display: none;
+}
+
+#text6 {
+margin: 2520px 0px 0px 0px;
+display: none;
+}
+
+#text7 {
+margin: 3000px 0px 0px 0px;
+display: none;
+}
+
+#text8 {
+margin: 3450px 0px 0px 0px;
+display: none;
+}
+
+#footer {
+clear: both;
+background: #fff;
+margin: 0;
+padding: 3px;
+text-align: center;
+color: #000;
+font-size: 14px;
+width: 555px;
+margin-left:auto;
+margin-right:auto;
+}
+
+#footer a {
+color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+

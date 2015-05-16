@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>
+
+         </title>
+        
+         <script src="jquery.js"> </script>
+
+         <style>  
+
+         #a1 {
+        margin: 550px;
+        left: 500px;
+        position:absolute;
+       }
+
+     #b1 {
+        margin: 50px;
+        left: 530px;
+        position:absolute;
+       }
+
+       #c1 {
+        margin: 50px;
+        left: 200px;
+        position:absolute;
+       }
+
+      #d1 {
+        margin: 380px;
+        left: -40px;
+        position:absolute;
+       }
+
+       #e1 {
+        margin: 380px;
+        left: 330px;
+        position:absolute;
+       }
+
+       .gifBox {
+        width: 660px;
+        margin: 20px auto;
+       }
+
+    
+
+      .gifBox img {
+        float: left;
+        margin-bottom: 10px;
+       }
+
+       .gifBox img:nth-child(odd) {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 660px) {
+         
+          .gifBox {
+            width: 100%;
+            margin: 0;
+          }
+
+          .gifBox img {
+            width: 100%;
+           }
+        
+        }
+
+        #audio {
+        visibility: hidden;    
+    }
+        </style>
+        
+    </head>
+
+   
+
+    <body>
+      <a href="index.html">
+        <img id="a1" class="obj" src="img/grey/death22.png" alt="" />
+      </a>
+      <div class="gifBox">
+        <img id="" class="obj" src="img/IMG_2995_2.gif" alt="" />
+        <img id="" class="obj" src="img/IMG_2996.gif" alt="" />
+        <img id="" class="obj" src="img/IMG_2998_2.gif" alt="" />
+        <img id="" class="obj" src="img/IMG_2997_2.gif" alt="" />
+      </div>
+       
+
+                 <audio id="audio" controls autoplay loop>
+                <source src="audio/winter.mp3" type="audio/mp3"/>
+                
+                </audio>
+
+    
+            
+    </body>
+
+</html>

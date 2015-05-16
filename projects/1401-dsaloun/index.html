@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>1968</title>
+       
+	<link href="style.css" rel="stylesheet" type="text/css" />
+        
+        <script src="jquery.js">
+        </script>
+        
+        <script>
+       
+        $(document).ready(function(){
+        
+            $(window).scroll(function(){
+            
+                var position = $(window).scrollTop();   
+                var w3move = 400 - position/4; 
+                var w4move = 600- position/5;  
+                var w5move = 500- position/6; 
+                var w6move = 600- position/6;                 
+                var w7move = 1000- position/5;   
+                var w8move = 1400- position/6;                 
+                var w9move = 1700- position/5;  
+                var w10move = 2000- position/5;        
+                var w11move = 1800- position/6; 
+                var w12move = 1800- position/6;                 
+                var w14move = 2000- position/6;
+                var w15move = 2800- position/5;
+                var w16move = 2900- position/5;
+                var w17move = 3300- position/5;
+                var w18move = 3400- position/5;
+                var w19move = 3400- position/5;
+                var w20move = 3000- position/6;
+                var w21move = 3300- position/6;
+                var w22move = 3500- position/6;
+                var w23move = 3600- position/6;
+                var w24move = 3700- position/6;
+                var w25move = 4000- position/6;
+                var w26move = 4100- position/6;
+                var w27move = 4500- position/6;
+                var w28move = 5500- position/5;
+                var w29move = 5500- position/5;
+                var w30move = 5800- position/5;
+                var w31move = 5100- position/6;
+                var w32move = 5100- position/6;
+                var w33move = 5500- position/6;
+                var w34move = 5500- position/6;
+                var w35move = 5700- position/6;
+                var w36move = 5800- position/6;
+
+
+
+
+
+
+
+                var o1move = 100 - position/2;
+
+                
+                $("#status").html(position);
+                $("#w3").css({right:w3move});
+                $("#w4").css({left:w4move});
+                $("#w5").css({right:w5move});
+                $("#w6").css({right:w6move});
+                $("#w7").css({left:w7move});
+                $("#w8").css({left:w8move});
+                $("#w9").css({right:w9move});
+                $("#w10").css({left:w10move});
+                $("#w11").css({left:w11move});
+                $("#w12").css({right:w12move});
+                $("#w14").css({right:w14move});
+                $("#w15").css({left:w15move});
+                $("#w16").css({left:w16move});
+                $("#w17").css({right:w17move});
+                $("#w18").css({right:w18move});
+                $("#w19").css({right:w19move});
+                $("#w20").css({left:w20move});
+                $("#w21").css({left:w21move});
+                $("#w22").css({left:w22move});
+                $("#w23").css({left:w23move});
+                $("#w24").css({left:w24move});
+                $("#w25").css({right:w25move});
+                $("#w26").css({right:w26move});
+                $("#w27").css({left:w27move});
+                $("#w28").css({left:w28move});
+                $("#w29").css({left:w29move});
+                $("#w30").css({left:w30move});
+                $("#w31").css({right:w31move});
+                $("#w32").css({right:w32move});
+                $("#w33").css({right:w33move});
+                $("#w34").css({right:w34move});
+                $("#w35").css({right:w35move});
+                $("#w36").css({right:w36move});
+
+
+
+
+
+
+
+                $("#o1").css({left:o1move});
+                $("#audio").trigger("play")
+
+                if(position > 1860 && position < 1960) {
+                
+                    var change = 1960 - position; 
+                                        
+                    var percent = (change / 100) * 100;
+                                    
+                    scrollAction($("#x2"), percent);
+
+                }
+                
+                if(position > 2760 && position < 2960) {       
+                
+                    var change = 2960 - position; 
+                    
+                    var percent = (change / 200) * 100;
+                    
+                    scrollAction($("#x4"), percent);
+
+                }
+                
+                if(position > 3880 && position < 4000) {
+
+                    var change = 4000 - position;
+                    
+                    var percent = (change / 120) * 100;
+                    
+                    scrollAction($("#x6"), percent);
+
+                }
+                
+                if(position > 4880 && position < 5020) {
+
+                    var change = 5020 - position;
+                    
+                    var percent = (change / 140) * 100;
+                    
+                    scrollAction($("#x8"), percent);
+
+                }
+                
+                if(position > 5876 && position < 6050) {
+
+                    var change = 6050 - position;
+                    
+                    var percent = (change / 174) * 100;
+                    
+                    scrollAction($("#x10"), percent);
+
+                }
+                
+                 if(position > 6900 && position < 7040) {
+
+                    var change = 7040 - position;
+                    
+                    var percent = (change / 140) * 100;
+                    
+                    scrollAction($("#x12"), percent);
+
+                }
+                   if(position > 7884 && position < 8065) {
+
+                    var change = 8065 - position;
+                    
+                    var percent = (change / 181) * 100;
+                    
+                    scrollAction($("#x14"), percent);
+
+                }
+                    if(position > 8900 && position < 9080) {
+
+                    var change = 9080 - position;
+                    
+                    var percent = (change / 181) * 100;
+                    
+                    scrollAction($("#x16"), percent);
+
+                }   
+                
+                if(position > 9835 && position < 10086) {
+
+                    var change = 10086 - position;
+                    
+                    var percent = (change / 251) * 100;
+                    
+                    scrollAction($("#x18"), percent);
+
+                } 
+                
+                if(position > 10866 && position < 11110) {
+
+                    var change = 11110 - position;
+                    
+                    var percent = (change / 244) * 100;
+                    
+                    scrollAction($("#x20"), percent);
+
+                }  
+                 
+                if(position > 12910 && position < 13120) {
+
+                    var change = 13120 - position;
+                    
+                    var percent = (change / 210) * 100;
+                    
+                    scrollAction($("#x22"), percent);
+
+                }  
+            
+                 if(position > 13875 && position < 14115) {
+
+                    var change = 14115 - position;
+                    
+                    var percent = (change / 240) * 100;
+                    
+                    scrollAction($("#x24"), percent);
+
+                }  
+              
+                if(position > 14930 && position < 15130) {
+
+                    var change = 15130 - position;
+                    
+                    var percent = (change / 200) * 100;
+                    
+                    scrollAction($("#x26"), percent);
+
+                }  
+                
+                if(position > 15950 && position < 16140) {
+
+                    var change = 16140 - position;
+                    
+                    var percent = (change / 190) * 100;
+                    
+                    scrollAction($("#x28"), percent);
+
+                }
+                
+                 if(position > 15950 && position < 16140) {
+
+                    var change = 16140 - position;
+                    
+                    var percent = (change / 190) * 100;
+                    
+                    scrollAction($("#x30"), percent);
+
+                }
+                
+                 if(position > 16920 && position < 17140) {
+
+                    var change = 17140 - position;
+                    
+                    var percent = (change / 220) * 100;
+                    
+                    scrollAction($("#x30"), percent);
+
+                }
+                
+                 if(position > 18950 && position < 19170) {
+
+                    var change = 19170 - position;
+                    
+                    var percent = (change / 220) * 100;
+                    
+                    scrollAction($("#x32"), percent);
+
+                }
+                
+                 if(position > 19990 && position < 20180) {
+
+                    var change = 20180 - position;
+                    
+                    var percent = (change / 190) * 100;
+                    
+                    scrollAction($("#x34"), percent);
+
+                }
+                
+                 if(position > 21070 && position < 21190) {
+
+                    var change = 21190 - position;
+                    
+                    var percent = (change / 120) * 100;
+                    
+                    scrollAction($("#x36"), percent);
+
+                }
+                
+                 if(position > 21960 && position < 22190) {
+
+                    var change = 22190 - position;
+                    
+                    var percent = (change / 230) * 100;
+                    
+                    scrollAction($("#x38"), percent);
+
+                }
+                
+                if(position > 23010 && position < 23220) {
+
+                    var change = 23220 - position;
+                    
+                    var percent = (change / 210) * 100;
+                    
+                    scrollAction($("#x40"), percent);
+
+                }
+                
+                if(position > 24020 && position < 24210) {
+
+                    var change = 24210 - position;
+                    
+                    var percent = (change / 190) * 100;
+                    
+                    scrollAction($("#x42"), percent);
+
+                }
+             
+                 if(position > 25020 && position < 25219) {
+
+                    var change = 25219 - position;
+                    
+                    var percent = (change / 199) * 100;
+                    
+                    scrollAction($("#x44"), percent);
+
+                }
+                
+                 if(position > 26090 && position < 26237) {
+
+                    var change = 26237 - position;
+                    
+                    var percent = (change / 147) * 100;
+                    
+                    scrollAction($("#x46"), percent);
+
+                }
+                
+                  if(position > 27135 && position < 27240) {
+
+                    var change = 27240 - position;
+                    
+                    var percent = (change / 105) * 100;
+                    
+                    scrollAction($("#x48"), percent);
+
+                }
+                
+                
+                
+                  if(position > 28125 && position < 28261) {
+
+                    var change = 28261 - position;
+                    
+                    var percent = (change / 136) * 100;
+                    
+                    scrollAction($("#x50"), percent);
+
+                }
+                 if(position > 29064 && position < 29259) {
+
+                    var change = 29259 - position;
+                    
+                    var percent = (change / 195) * 100;
+                    
+                    scrollAction($("#x52"), percent);
+
+                }
+                
+                if(position > 30131 && position < 30279) {
+
+                    var change = 30279 - position;
+                    
+                    var percent = (change / 148) * 100;
+                    
+                    scrollAction($("#x54"), percent);
+
+                }
+  
+                 if(position > 31105 && position < 31290) {
+
+                    var change = 31290 - position;
+                    
+                    var percent = (change / 185) * 100;
+                    
+                    scrollAction($("#x56"), percent);
+
+                }
+  
+                if(position >32066  && position < 32283) {
+
+                    var change = 32283 - position;
+                    
+                    var percent = (change / 217) * 100;
+                    
+                    scrollAction($("#x58"), percent);
+
+                }
+
+                if(position >33079  && position < 33291) {
+
+                    var change = 33291 - position;
+                    
+                    var percent = (change / 212) * 100;
+                    
+                    scrollAction($("#x60"), percent);
+
+                }
+                
+                if(position >34075  && position < 34295) {
+
+                    var change = 34295 - position;
+                    
+                    var percent = (change / 220) * 100;
+                    
+                    scrollAction($("#x62"), percent);
+
+                }
+
+
+                if(position >35109  && position < 35315) {
+
+                    var change = 35315 - position;
+                    
+                    var percent = (change / 206) * 100;
+                    
+                    scrollAction($("#x64"), percent);
+
+                }
+
+
+
+
+            });
+            
+
+
+
+            function scrollAction(element, scaleFactor){
+                
+                console.log(scaleFactor);
+                            
+                element.css({width:scaleFactor + '%'});
+                
+            };
+        
+        
+         $("#header").click(function(){
+           
+                $("o1").show("fast");
+           
+           });
+
+          
+
+        
+        });
+            
+        </script>
+
+        
+    </head>
+    <body>
+        
+        
+        
+       
+        
+        <div id="wrap">
+            
+            <div class="win" id="w1">
+
+            <img src="img/2.gif" alt=""/>
+            </div>
+            
+            <div class="win" id="w2">
+                            <img src="img/prologue.png" alt=""/>
+
+                        
+
+                
+            </div>
+            <div class="win" id="w3"> 
+                <div id="x1" class="images obj"></div>
+                <div id="x2" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w4">
+                <div id="x3" class="images obj"></div>  
+                <div id="x4" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w5">
+                <div id="x5" class="images obj"></div>  
+                <div id="x6" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w6">
+                <div id="x7" class="images obj"></div>  
+                <div id="x8" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w7">
+                <div id="x9" class="images obj"></div>  
+                <div id="x10" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w8">
+                <div id="x11" class="images obj"></div>  
+                <div id="x12" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w9">
+                <div id="x13" class="images obj"></div>  
+                <div id="x14" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w10">
+                <div id="x15" class="images obj"></div>  
+                <div id="x16" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w11">
+                <div id="x17" class="images obj"></div>  
+                <div id="x18" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w12">
+                <div id="x19" class="images obj"></div>  
+                <div id="x20" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w13">
+                               <img src="img/text.png" alt=""/>
+
+            </div>
+             <div class="win" id="w14">
+                <div id="x21" class="images obj"></div>  
+                <div id="x22" class="images obj"></div>
+            </div>
+            <div class="win" id="w15">
+                <div id="x23" class="images obj"></div>  
+                <div id="x24" class="images obj"></div>
+            </div>
+            
+             <div class="win" id="w16">
+                <div id="x25" class="images obj"></div>  
+                <div id="x26" class="images obj"></div>
+            </div>
+            
+             <div class="win" id="w17">
+                <div id="x27" class="images obj"></div>  
+                <div id="x28" class="images obj"></div>
+            </div>
+            
+              <div class="win" id="w18">
+                <div id="x29" class="images obj"></div>  
+                <div id="x30" class="images obj"></div>
+            </div>
+            
+             <div class="win" id="w19">
+                                             <img src="img/text2.png" alt=""/>
+
+            </div>
+            
+            <div class="win" id="w20">
+                <div id="x31" class="images obj"></div>  
+                <div id="x32" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w21">
+                <div id="x33" class="images obj"></div>  
+                <div id="x34" class="images obj"></div>
+            </div>
+            
+             <div class="win" id="w22">
+                <div id="x35" class="images obj"></div>  
+                <div id="x36" class="images obj"></div>
+             </div>
+            
+            <div class="win" id="w23">
+                <div id="x37" class="images obj"></div>  
+                <div id="x38" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w24">
+                <div id="x39" class="images obj"></div>  
+                <div id="x40" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w25">
+                <div id="x41" class="images obj"></div>  
+                <div id="x42" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w26">
+                <div id="x43" class="images obj"></div>  
+                <div id="x44" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w27">
+                <div id="x45" class="images obj"></div>  
+                <div id="x46" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w28">
+                <div id="x47" class="images obj"></div>  
+                <div id="x48" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w29">
+                <div id="x49" class="images obj"></div>  
+                <div id="x50" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w30">
+                <div id="x51" class="images obj"></div>  
+                <div id="x52" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w31">
+                <div id="x53" class="images obj"></div>  
+                <div id="x54" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w32">
+                <div id="x55" class="images obj"></div>  
+                <div id="x56" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w33">
+                <div id="x57" class="images obj"></div>  
+                <div id="x58" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w34">
+             <div id="x59" class="images obj"></div>  
+             <div id="x60" class="images obj"></div>   
+            </div>
+             
+            <div class="win" id="w35">
+                <div id="x61" class="images obj"></div>  
+                <div id="x62" class="images obj"></div>
+            </div>
+            
+            <div class="win" id="w36">
+                <div id="x63" class="images obj"></div>  
+                <div id="x64" class="images obj"></div>
+            </div>
+        <div class="win" id="w37">
+                                            <img src="img/footer.png" alt=""/>
+
+            </div>
+            
+            
+            
+              <audio id="audio" controls>
+                <source src="http://www.ustrcr.cz/data/mp3/srpen-1968/rozhlas_002.mp3" type="audio/mp3"/>
+            </audio>
+            
+            
+        </div>
+    </body>
+</html>

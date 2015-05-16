@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SPb metro history</title>
+		<style type="text/css">
+			body {background-color: #F2F2F2;}
+			p {font-family: helvetica; color: #444;}
+			#centered {margin: auto; position: relative;}
+			#centered2 {margin: auto; position: relative;}
+			#scrolling {position: absolute; height:3261px; border: #F2F2F2 solid 1px;}
+			h1 {text-indent: -9000px;}
+			#ground {position: fixed; bottom:0; left:0; right:0; background-color: #9E7116; border-top: solid rgba(76,193,0,.7) 8px; height: 157px}
+			#year {position:fixed; top:-20px; left: 40px; font-size:50px;}
+			#centered3 {margin: auto;}
+			#start {position: absolute; text-indent: center;}
+
+			
+			
+			#lines {position: fixed;}
+			#lines2 {position: fixed;}
+
+			path {
+				transition: stroke-dashoffset 0.3s;
+			}
+
+
+
+			/*rect {opacity: 0;}
+			#y1955 rect {opacity: 1 !important;}
+			.invisible rect {opacity: 0;}
+			.visible rect {opacity: 1;}*/
+
+
+			@media(max-width:1920px){
+				#scrolling {height: 4261px;}
+				#centered {width:877.456px;}
+				#centered2{width:1207.333px;}
+				#lines {top:50px;}
+				#lines2 {bottom:5px}
+				#ground {height: 157px;}
+				#year {top:0px;}
+				#start {top:360px; font-size: 30px;}
+				#centered3 {width: 500px;}
+			}
+
+				@media(max-width:1366px){
+				#scrolling {height: 3961px;}
+				#centered {width: 600px;}
+				#centered2{width: 800px;}
+				#lines {width: 600px;top:-80px;}
+				#lines2 {width: 800px; bottom:-15px}
+				#ground {height: 110px;}
+				#year {font-size: 26px; top:0;}
+				#start {top:260px; font-size: 26px;}
+				#centered3 {width: 500px;}
+			}
+
+
+		</style>
+		<script src="jquery.js" type="text/javascript"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<!--<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script>window.jQuery || document.write('<script src="jquery.js" type="text/javascript"></script>')</script>-->
+
+		<script>
+		$(document).ready(function(){
+
+			
+					
+			$('rect').hide();
+
+			$('#river').hide();
+
+			$('#year').hide();
+
+
+
+			function SVG(tag) {
+			    return document.createElementNS('http://www.w3.org/2000/svg', tag);
+			}
+
+			(function replacePolylinesWithPaths() {
+										
+			    var polylines = $(document).find('polyline');
+
+			    $.each(polylines, function() {
+
+			    	//console.log(this);
+
+			        var points = $(this).attr('points');
+
+			        $(SVG('path'))
+			        .attr('d', 'M' + points)
+			        .attr('fill', $(this).attr('fill'))
+			        .attr('stroke', $(this).attr('stroke'))
+			        .attr('stroke-width', $(this).attr('stroke-width'))
+			        .insertAfter(this);
+
+			    });
+
+		    	$(polylines).remove();
+
+		    	strokedraw('#line1at1955 :first-child',0);
+		    	strokedraw('#line1at1958 :first-child',0);
+		    	strokedraw('#line1at1975 :first-child',0);
+		    	strokedraw('#line1at1977 :first-child',0);
+		    	strokedraw('#line1at1978 :first-child',0);
+
+		    	strokedraw('#line2at1961 :first-child',0);
+		    	strokedraw('#line2at1969 :first-child',0);
+		    	strokedraw('#line2at1972 :first-child',0);
+		    	strokedraw('#line2at1988 :first-child',0);
+		    	strokedraw('#line2at1963 :first-child',0);
+		    	strokedraw('#line2at1982 :first-child',0);
+		    	strokedraw('#line2at2006 :first-child',0);
+
+		    	strokedraw('#line3at1967 :first-child',0);
+		    	strokedraw('#line3at1981 :first-child',0);
+		    	strokedraw('#line3at1970 :first-child',0);
+		    	strokedraw('#line3at1979 :first-child',0);
+		    	strokedraw('#line3at1984 :first-child',0);
+
+		    	strokedraw('#line4at1985 :first-child',0);
+		    	strokedraw('#line4at1991 :first-child',0);
+		    	strokedraw('#line4at1999c :first-child',0);   			    	    			    	
+		    	strokedraw('#line4at1987 :first-child',0);
+		    	strokedraw('#line4at1997c :first-child',0);
+		    	strokedraw('#line4at2005c :first-child',0);
+
+		    	strokedraw('#line5at2008 :first-child',0);
+		    	strokedraw('#line5at2009 :first-child',0);
+		    	strokedraw('#line5at2012 :first-child',0);
+
+
+
+				strokedraw('#uline1at1955 :first-child', 0);
+				strokedraw('#uline1at1958 :first-child', 0);
+				strokedraw('#uline1at1975 :first-child', 0);
+				strokedraw('#uline1at1977 :first-child', 0);
+				strokedraw('#uline1at1978 :first-child', 0);
+
+				strokedraw('#uline2at1961 :first-child', 0);
+				strokedraw('#uline2at1963 :first-child', 0);
+				strokedraw('#uline2at1969 :first-child', 0);
+				strokedraw('#uline2at1972 :first-child', 0);
+				strokedraw('#uline2at1982 :first-child', 0);
+				strokedraw('#uline2at1988 :first-child', 0);
+				strokedraw('#uline2at2006 :first-child', 0);
+
+				strokedraw('#uline3at1967 :first-child', 0);
+				strokedraw('#uline3at1970 :first-child', 0);
+				strokedraw('#uline3at1979 :first-child', 0);
+				strokedraw('#uline3at1981 :first-child', 0);
+				strokedraw('#uline3at1984 :first-child', 0);
+
+				strokedraw('#uline4at1985 :first-child', 0);
+				strokedraw('#uline4at1987 :first-child', 0);
+				strokedraw('#uline4at1991 :first-child', 0);
+				strokedraw('#uline4at1999t :first-child', 0);
+				strokedraw('#uline4at1997t :first-child', 0);
+				strokedraw('#uline4at2005t :first-child', 0);
+
+				strokedraw('#uline5at2009 :first-child', 0);
+				strokedraw('#uline5at2009c :first-child', 0);
+				strokedraw('#uline5at2008 :first-child', 0);
+				strokedraw('#uline5at2012 :first-child', 0);
+
+
+		    	
+			})()
+
+
+
+
+			function strokedraw(x,y){
+
+				var localpath = document.querySelector(x);
+
+				//console.log('path', path);
+			
+				var length = localpath.getTotalLength();
+
+				var perlength = y * length * .01;
+									
+				localpath.style.strokeDasharray = length + ' ' + length;
+				
+				localpath.style.strokeDashoffset = length - perlength;
+
+			}
+
+			
+			//код от олежки
+
+			/*$('polyline').each(function(){
+  			strokedraw($(this),y);
+			});*/
+
+			/*$('path').each(function(){
+	  			strokedraw($(this),0);
+				});
+
+			function strokedraw(x,y){
+		    var path =x;
+		    console.log('path', path);   
+		    var length = path.getTotalLength();
+		    var perlength = y * length * .01;         
+		    path.style.strokeDasharray = length + ' ' + length;
+		    path.style.strokeDashoffset = length - perlength;
+
+		   }*/
+			
+
+			var previousYear;
+
+			$(window).scroll(function(){
+				//defining variable that stores the position of the screen when scrolling
+				var position = $(window).scrollTop();
+
+				console.log(position) //output into console
+
+				var year=0;
+
+				if (position == 0 && position<=500) {
+
+					year=0;
+
+				} else if (position>500 && position<=600) {
+
+					year=1955; 
+					
+				} else if (position>600 && position<=700) {
+
+					year=1956; 
+					
+				} else if (position>700 && position<=800) {
+
+					year=1958;
+
+				} else if (position>800 && position<=900) {
+
+					year=1961;
+
+				} else if (position>900 && position<=1000) {
+
+					year=1963;
+
+				} else if (position>1000 && position<=1100) {
+
+					year=1967;
+
+				} else if (position>1100 && position<=1200) {
+
+					year=1969;
+
+				} else if (position>1200 && position<=1300) {
+
+					year=1970;
+
+				} else if (position>1300 && position<=1400) {
+
+					year=1972;
+
+				} else if (position>1400 && position<=1500) {
+
+					year=1975;
+
+				} else if (position>1500 && position<=1600) {
+
+					year=1977;
+
+				} else if (position>1600 && position<=1700) {
+
+					year=1978;
+
+				} else if (position>1700 && position<=1800) {
+
+					year=1979;
+
+				} else if (position>1800 && position<=1900) {
+
+					year=1981;
+
+				} else if (position>1900 && position<=2000) {
+
+					year=1982;
+
+				} else if (position>2000 && position<=2100) {
+
+					year=1984;
+
+				} else if (position>2100 && position<=2200) {
+
+					year=1985;
+
+				} else if (position>2200 && position<=2300) {
+
+					year=1987;
+
+				} else if (position>2300 && position<=2400) {
+
+					year=1988;
+
+				} else if (position>2400 && position<=2500) {
+
+					year=1991;
+
+				} else if (position>2500 && position<=2600) {
+
+					year=1997;
+
+				} else if (position>2600 && position<=2700) {
+
+					year=1999;
+
+				} else if (position>2700 && position<=2800) {
+
+					year=2005;
+
+				} else if (position>2800 && position<=2900) {
+
+					year=2006;
+
+				} else if (position>2900 && position<=3000) {
+
+					year=2008;
+
+				} else if (position>3000 && position<=3100) {
+
+					year=2009;
+
+				} else if (position>3100 && position<=3200) {
+
+					year=2010;
+
+				} else if (position>3200 && position<=3300) {
+
+					year=2011;
+
+				} else if (position>3300) {
+
+					year=2012;
+
+				};
+
+				if(previousYear != year){
+
+					styleAllTheThings(year);
+				
+					$("#year").html(year);
+
+				}
+
+				
+			});
+			
+			
+			function styleAllTheThings(currentYear){
+
+				previousYear = currentYear;
+
+				if(currentYear == 0) {
+
+					$('#year').fadeOut();
+					$('#river').fadeOut();
+					$('#y1955 rect').fadeOut();
+					$('#y1955t rect').fadeOut();
+
+					$('rect').hide();
+
+					strokedraw('#line1at1955 :first-child',0);
+					strokedraw('#line1at1958 :first-child',0);
+					strokedraw('#line2at1961 :first-child',0);
+					strokedraw('#line3at1967 :first-child',0);
+					strokedraw('#line3at1970 :first-child',0);	
+					strokedraw('#line2at1972 :first-child',00);
+					strokedraw('#line1at1975 :first-child',00);
+					strokedraw('#line1at1977 :first-child',00);
+					strokedraw('#line1at1978 :first-child',00);
+					strokedraw('#line3at1979 :first-child',00);	
+					strokedraw('#line3at1981 :first-child',00);
+					strokedraw('#line2at1982 :first-child',00);
+					strokedraw('#line3at1984 :first-child',00);
+					strokedraw('#line4at1985 :first-child',00);
+					strokedraw('#line4at1987 :first-child',00);
+					strokedraw('#line2at1988 :first-child',00);
+					strokedraw('#line4at1991 :first-child',00);
+					strokedraw('#line4at1997c :first-child',00);
+					strokedraw('#line4at1999c :first-child',00);
+					strokedraw('#line4at2005c :first-child',00);
+					strokedraw('#line2at2006 :first-child',00);
+					strokedraw('#line5at2008 :first-child',00);
+					strokedraw('#line5at2009 :first-child',0);
+					strokedraw('#line5at2012 :first-child',00);
+
+					strokedraw('#uline1at1955 :first-child', 0);
+					strokedraw('#uline1at1958 :first-child', 0);
+					strokedraw('#uline1at1975 :first-child', 0);
+					strokedraw('#uline1at1977 :first-child', 0);
+					strokedraw('#uline1at1978 :first-child', 0);
+
+					strokedraw('#uline2at1961 :first-child', 0);
+					strokedraw('#uline2at1963 :first-child', 0);
+					strokedraw('#uline2at1969 :first-child', 0);
+					strokedraw('#uline2at1972 :first-child', 0);
+					strokedraw('#uline2at1982 :first-child', 0);
+					strokedraw('#uline2at1988 :first-child', 0);
+					strokedraw('#uline2at2006 :first-child', 0);
+
+					strokedraw('#uline3at1967 :first-child', 0);
+					strokedraw('#uline3at1970 :first-child', 0);
+					strokedraw('#uline3at1979 :first-child', 0);
+					strokedraw('#uline3at1981 :first-child', 0);
+					strokedraw('#uline3at1984 :first-child', 0);
+
+					strokedraw('#uline4at1985 :first-child', 0);
+					strokedraw('#uline4at1987 :first-child', 0);
+					strokedraw('#uline4at1991 :first-child', 0);
+					strokedraw('#uline4at1999t :first-child', 0);
+					strokedraw('#uline4at1997t :first-child', 0);
+					strokedraw('#uline4at2005t :first-child', 0);
+
+					strokedraw('#uline5at2009 :first-child', 0);
+					strokedraw('#uline5at2009c :first-child', 0);
+					strokedraw('#uline5at2008 :first-child', 0);
+					strokedraw('#uline5at2012 :first-child', 0);
+
+
+				}
+
+				if(currentYear == 1955) {
+
+					/*path.style.strokeDashoffset=offset();*/
+					/*$('#y1956').attr("class","invisible");
+					$('rect').attr("class","invisible")*/
+					
+
+					$('#river').fadeIn();
+					$('#y1955 rect').fadeIn();
+					$('#y1955t rect').fadeIn();
+					$('#year').fadeIn();
+
+					$('#y1956t rect').fadeOut();
+
+					strokedraw('#line1at1955 :first-child',100);
+					strokedraw('#uline1at1955 :first-child', 100);
+										
+
+				} if(currentYear == 1956) {
+
+					/*path.style.strokeDashoffset=length-200;*/
+					/*$('#y1956').attr("class","visible");
+					$('#y1958').attr("class","invisible");*/
+					$('#y1956t rect').fadeIn();
+
+					$('#y1958 rect').fadeOut();
+
+					strokedraw('#line1at1958 :first-child',0);
+					strokedraw('#uline1at1958 :first-child', 0);
+										
+				} if(currentYear == 1958) {
+
+					/*path.style.strokeDashoffset=length-400;*/
+					/*$('#y1958').attr("class","visible");
+					$('#y1961').attr("class","invisible");*/
+					$('#y1958 rect').fadeIn();
+
+					$('#y1961 rect').fadeOut();
+
+					$('#y1955t #y1955t1').show();
+
+					strokedraw('#line1at1958 :first-child',-100);
+					strokedraw('#uline1at1958 :first-child', -100);
+
+					strokedraw('#line2at1961 :first-child',0);
+					strokedraw('#uline2at1961 :first-child', 00);
+					
+										
+				} if(currentYear == 1961) {
+
+					/*path.style.strokeDashoffset=length-600;*/
+					/*$('#y1961').attr("class","visible");
+					$('#y1963').attr("class","invisible");*/
+					$('#y1961 rect').fadeIn();
+
+					$('#y1963 rect').fadeOut();
+					$('#y1963t rect').fadeOut();
+
+					$('#y1955t #y1955t1').hide();
+
+					strokedraw('#line2at1961 :first-child',100);
+					strokedraw('#uline2at1961 :first-child', 100);
+
+					strokedraw('#line2at1963 :first-child',0);
+					strokedraw('#uline2at1963 :first-child', 0);
+
+										
+				} if(currentYear == 1963) {
+
+					/*$('#y1963').attr("class","visible");
+					$('#y1967').attr("class","invisible");*/
+					$('#y1963 rect').fadeIn();
+					$('#y1963t rect').fadeIn();
+
+					$('#y1967 rect').fadeOut();
+					$('#y1967t rect').fadeOut();
+
+					$('#y1955t #y1955t3').show();
+
+					strokedraw('#line2at1963 :first-child',-100);
+					strokedraw('#uline2at1963 :first-child', -100);
+
+					strokedraw('#line3at1967 :first-child',0);
+					strokedraw('#uline3at1967 :first-child', 0);
+					
+				} if(currentYear == 1967) {
+
+					/*$('#y1967').attr("class","visible");
+					$('#y1969').attr("class","invisible");*/
+					$('#y1967 rect').fadeIn();
+					$('#y1967t rect').fadeIn();
+
+					$('#y1969 rect').fadeOut();
+
+					$('#y1955t #y1955t3').hide();
+
+					strokedraw('#line3at1967 :first-child',100);
+					strokedraw('#uline3at1967 :first-child', -100);
+
+					strokedraw('#line2at1969 :first-child',0);
+					strokedraw('#uline2at1969 :first-child', 0);
+					
+				} if(currentYear == 1969) {
+
+					/*$('#y1969').attr("class","visible");
+					$('#y1970').attr("class","invisible");*/
+					$('#y1969 rect').fadeIn();
+
+					$('#y1970 rect').fadeOut();	
+
+					strokedraw('#line2at1969 :first-child',100);
+					strokedraw('#uline2at1969 :first-child', 100);
+
+					strokedraw('#line3at1970 :first-child',0);
+					strokedraw('#uline3at1970 :first-child', 0);	
+
+				} if(currentYear == 1970) {
+
+					/*$('#y1970').attr("class","visible");
+					$('#y1972').attr("class","invisible");*/
+					$('#y1970 rect').fadeIn();
+
+					$('#y1972 rect').fadeOut();
+
+					strokedraw('#line3at1970 :first-child',100);
+					strokedraw('#uline3at1970 :first-child', -100);
+
+					strokedraw('#line2at1972 :first-child',00);
+					strokedraw('#uline2at1972 :first-child', 0);
+					
+				} if(currentYear == 1972) {
+
+					/*$('#y1972').attr("class","visible");
+					$('#y1975').attr("class","invisible");*/
+					$('#y1972 rect').fadeIn();
+
+					$('#y1975 rect').fadeOut();
+
+					strokedraw('#line2at1972 :first-child',100);
+					strokedraw('#uline2at1972 :first-child', 100);
+
+					strokedraw('#line1at1975 :first-child',00);
+					strokedraw('#uline1at1975 :first-child', 0);
+
+				} if(currentYear == 1975) {
+
+					/*$('#y1975').attr("class","visible");
+					$('#y1977').attr("class","invisible");*/
+					$('#y1975 rect').fadeIn();
+
+					$('#y1977 rect').fadeOut();
+
+					strokedraw('#line1at1975 :first-child',-100);
+					strokedraw('#uline1at1975 :first-child', -100);
+
+					strokedraw('#line1at1977 :first-child',00);
+					strokedraw('#uline1at1977 :first-child', 0);
+					
+				} if(currentYear == 1977) {
+
+					/*$('#y1977').attr("class","visible");
+					$('#y1978').attr("class","invisible");*/
+					$('#y1977 rect').fadeIn();
+
+					$('#y1978 rect').fadeOut();
+
+					strokedraw('#line1at1977 :first-child',100);
+					strokedraw('#uline1at1977 :first-child', 100);
+					
+
+					strokedraw('#line1at1978 :first-child',00);
+					strokedraw('#uline1at1978 :first-child', 00);
+					
+				} if(currentYear == 1978) {
+
+					/*$('#y1978').attr("class","visible");
+					$('#y1979').attr("class","invisible");*/
+					$('#y1978 rect').fadeIn();
+
+					$('#y1979 rect').fadeOut();
+
+					strokedraw('#line1at1978 :first-child',-100);
+					strokedraw('#uline1at1978 :first-child', -100);
+
+					strokedraw('#line3at1979 :first-child',00);	
+					strokedraw('#uline3at1979 :first-child', 0);
+					
+				} if(currentYear == 1979) {
+
+					/*$('#y1979').attr("class","visible");
+					$('#y1981').attr("class","invisible");*/
+					$('#y1979 rect').fadeIn();
+
+					$('#y1981 rect').fadeOut();
+
+					strokedraw('#line3at1979 :first-child',-100);
+					strokedraw('#uline3at1979 :first-child', 100);
+
+					strokedraw('#line3at1981 :first-child',00);
+					strokedraw('#uline3at1981 :first-child', 0);
+
+				} if(currentYear == 1981) {
+
+					/*$('#y1981').attr("class","visible");
+					$('#y1982').attr("class","invisible");*/
+					$('#y1981 rect').fadeIn();
+
+					$('#y1982 rect').fadeOut();
+
+					strokedraw('#line3at1981 :first-child',100);
+					strokedraw('#uline3at1981 :first-child', -100);
+
+					strokedraw('#line2at1982 :first-child',00);
+					strokedraw('#uline2at1982 :first-child', 0);
+					
+
+				} if(currentYear == 1982) {
+
+					/*$('#y1982').attr("class","visible");
+					$('#y1984').attr("class","invisible");*/
+					$('#y1982 rect').fadeIn();
+
+					$('#y1984 rect').fadeOut();
+
+					strokedraw('#line2at1982 :first-child',-100);
+					strokedraw('#uline2at1982 :first-child', -100);
+
+					strokedraw('#line3at1984 :first-child',00);
+					strokedraw('#uline3at1984 :first-child', 0);
+
+				} if(currentYear == 1984) {
+
+					/*$('#y1984').attr("class","visible");
+					$('#y1985').attr("class","invisible");*/
+					$('#y1984 rect').fadeIn();
+
+					$('#y1985 rect').fadeOut();
+
+					$('#y1967t rect').show();
+
+					strokedraw('#line3at1984 :first-child',100);
+					strokedraw('#uline3at1984 :first-child', -100);
+
+					strokedraw('#line4at1985 :first-child',00);
+					strokedraw('#uline4at1985 :first-child', 0);
+
+				} if(currentYear == 1985) {
+
+					/*$('#y1985').attr("class","visible");
+					$('#y1987').attr("class","invisible");*/
+					$('#y1985 rect').fadeIn();
+
+					$('#y1987 rect').fadeOut();
+
+					$('#y1967t rect').hide();
+
+					strokedraw('#line4at1985 :first-child',100);
+					strokedraw('#uline4at1985 :first-child', 100);
+					
+					strokedraw('#line4at1987 :first-child',00);
+					strokedraw('#uline4at1987 :first-child', 0);
+
+				} if(currentYear == 1987) {
+
+					/*$('#y1987').attr("class","visible");
+					$('#y1988').attr("class","invisible");*/
+					$('#y1987 rect').fadeIn();
+
+					$('#y1988 rect').fadeOut();			
+
+					strokedraw('#line4at1987 :first-child',100);
+					strokedraw('#uline4at1987 :first-child', -100);
+
+					strokedraw('#line2at1988 :first-child',00);
+					strokedraw('#uline2at1988 :first-child', 0);
+
+				} if(currentYear == 1988) {
+
+					/*$('#y1988').attr("class","visible");
+					$('#y1991').attr("class","invisible");*/
+					$('#y1988 rect').fadeIn();
+
+					$('#y1991 rect').fadeOut();
+					$('#y1991t rect').fadeOut();
+
+					$('#y1963t #y1963t2').show();
+
+					strokedraw('#line2at1988 :first-child',-100);
+					strokedraw('#uline2at1988 :first-child', -100);
+
+					strokedraw('#line4at1991 :first-child',00);
+					strokedraw('#uline4at1991 :first-child', 0);
+
+				} if(currentYear == 1991) {
+
+					/*$('#y1991').attr("class","visible");
+					$('#y1997').attr("class","invisible");*/
+					$('#y1991 rect').fadeIn();
+					$('#y1991t rect').fadeIn();
+
+					$('#y1997c rect').fadeOut();
+
+					$('#y1963t #y1963t2').hide();
+
+					strokedraw('#line4at1991 :first-child',-100);
+					strokedraw('#uline4at1991 :first-child', 100);
+
+					strokedraw('#line4at1997c :first-child',00);
+					strokedraw('#uline4at1997t :first-child', 0);
+
+				} if(currentYear == 1997) {
+
+					/*$('#y1997').attr("class","visible");
+					$('#y1999').attr("class","invisible");*/
+					$('#y1997c rect').fadeIn();
+
+					$('#y1999c rect').fadeOut();
+
+					strokedraw('#line4at1997c :first-child',100);
+					strokedraw('#uline4at1997t :first-child', 100);
+
+					strokedraw('#line4at1999c :first-child',00);
+					strokedraw('#uline4at1999t :first-child', 0);
+
+				} if(currentYear == 1999) {
+
+					/*$('#y1999').attr("class","visible");
+					$('#y2005').attr("class","invisible");*/
+					$('#y1999c rect').fadeIn();
+
+					$('#y2005c rect').fadeOut();
+
+					strokedraw('#line4at1999c :first-child',100);
+					strokedraw('#uline4at1999t :first-child', 100);
+					
+					strokedraw('#line4at2005c :first-child',00);
+					strokedraw('#uline4at2005t :first-child', 0);
+					
+				} if(currentYear == 2005) {
+
+					/*$('#y2005').attr("class","visible");
+					$('#y2006').attr("class","invisible");*/
+					$('#y2005c rect').fadeIn();
+
+					$('#y2006 rect').fadeOut();
+
+					strokedraw('#line4at2005c :first-child',100);
+					strokedraw('#uline4at2005t :first-child', 100);
+
+					strokedraw('#line2at2006 :first-child',00);
+					strokedraw('#uline2at2006 :first-child', 0);
+				
+				} if(currentYear == 2006) {
+
+					/*$('#y2006').attr("class","visible");
+					$('#y2008').attr("class","invisible");*/
+					$('#y2006 rect').fadeIn();
+
+					$('#y2008 rect').fadeOut();
+					$('#y2008t rect').fadeOut();
+
+					strokedraw('#line2at2006 :first-child',-100);
+					strokedraw('#uline2at2006 :first-child', -100);
+
+					strokedraw('#line5at2008 :first-child',00);
+					strokedraw('#uline5at2008 :first-child', 0);
+
+				} if(currentYear == 2008) {
+
+					/*$('#y2008').attr("class","visible");
+					$('#y2009').attr("class","invisible");*/
+					$('#y2008 rect').fadeIn();
+					$('#y2008t rect').fadeIn();
+
+					$('#y2009 rect').fadeOut();
+
+					$('#y1991t rect').show();
+
+					strokedraw('#line5at2008 :first-child',-100);
+					strokedraw('#uline5at2008 :first-child', 100);
+
+					strokedraw('#line5at2009 :first-child',0);
+					strokedraw('#uline5at2009 :first-child', 0);
+					strokedraw('#uline5at2009c :first-child', 0);
+
+					strokedraw('#uline4at1997t :first-child', 100);
+					strokedraw('#uline4at1999t :first-child', 100);
+					strokedraw('#uline4at2005t :first-child', 100);
+
+					$("#line4at1997c :first-child").attr("stroke", "#F2A25A");
+					$("#line4at1999c :first-child").attr("stroke", "#F2A25A");
+					$("#line4at2005c :first-child").attr("stroke", "#F2A25A");
+
+					$('#y1997c rect').attr("fill", "#934200");
+					$('#y1999c rect').attr("fill", "#934200");
+					$('#y2005c rect').attr("fill", "#934200");
+
+				} if(currentYear == 2009) {
+
+					/*$('#y2009').attr("class","visible");
+					$('#y2010').attr("class","invisible");*/
+					$('#y2009 rect').fadeIn();
+
+					$('#y2010 rect').fadeOut();
+
+					$('#y1991t rect').hide();
+
+					strokedraw('#line5at2009 :first-child',100);
+					strokedraw('#uline5at2009 :first-child', -100);
+					strokedraw('#uline5at2009c :first-child', -100);
+
+					strokedraw('#uline4at1997t :first-child', 0);
+					strokedraw('#uline4at1999t :first-child', 0);
+					strokedraw('#uline4at2005t :first-child', 0);
+					
+
+					$("#line4at1997c :first-child").attr("stroke", "#D493F9");
+					$("#line4at1999c :first-child").attr("stroke", "#D493F9");
+					$("#line4at2005c :first-child").attr("stroke", "#D493F9");
+
+					$('#y1997c rect').attr("fill", "#4D0E75");
+					$('#y1999c rect').attr("fill", "#4D0E75");
+					$('#y2005c rect').attr("fill", "#4D0E75");
+				
+
+				} if(currentYear == 2010) {
+
+					/*$('#y2010').attr("class","visible");
+					$('#y2011').attr("class","invisible");*/
+					$('#y2010 rect').fadeIn();
+
+					$('#y2011 rect').fadeOut();
+
+					
+
+				} if(currentYear == 2011) {
+
+					/*$('#y2011').attr("class","visible");
+					$('#y2012').attr("class","invisible");*/
+					$('#y2011 rect').fadeIn();
+
+					$('#y2012 rect').fadeOut();
+
+					strokedraw('#line5at2012 :first-child',00);
+					strokedraw('#uline5at2012 :first-child', 0);
+
+				} if(currentYear == 2012) {
+
+					/*$('#y2012').attr("class","visible");*/
+					$('#y2012 rect').fadeIn();
+
+					strokedraw('#line5at2012 :first-child',-100);
+					strokedraw('#uline5at2012 :first-child', 100);
+				
+				};
+
+		};
+
+		});
+
+		
+
+		</script>
+	</head>
+
+	<body>
+		<h1>SPb metro history</h1>
+		<div id="scrolling"></div>
+		<p id="year"></p>
+		
+		
+		<div id="centered">
+		
+
+
+			<svg version="1.1" id="lines" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="877.456px" height="697.465px" viewBox="151.768 171.599 877.456 697.465"
+	 enable-background="new 151.768 171.599 877.456 697.465" xml:space="preserve">
+<g id="line1at1955">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		688.351,612.018 471.799,684.7 431.117,778.846 	"/>
+</g>
+<g id="line1at1958">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		714.528,529.418 717.901,602.1 688.351,612.018 	"/>
+</g>
+<g id="line1at1975">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		786.477,317.507 708.401,397.4 714.528,529.418 	"/>
+</g>
+<g id="line1at1977">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		431.117,778.846 411,825.4 347.8,850.7 	"/>
+</g>
+<g id="line1at1978">
+	
+		<path fill="none" stroke="#F48C8C" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M854.5,247.9c0,0-21.385,21.883-28.514,29.178c-9.877,10.107-39.51,40.43-39.51,40.43"/>
+</g>
+<g id="line2at1961">
+	
+		<path fill="none" stroke="#6CB7F4" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M575.018,645.902c0,0,4.113,41.143,5.484,54.856c1.993,19.942,7.973,79.769,7.973,79.769"/>
+</g>
+<g id="line2at1963">
+	
+		<polyline fill="none" stroke="#6CB7F4" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		591.772,466.055 621.901,588.1 571.7,612.7 575.018,645.902 	"/>
+</g>
+<g id="line2at1969">
+	
+		<path fill="none" stroke="#6CB7F4" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M588.475,780.527c0,0,1.415,14.163,1.887,18.884c0.535,5.347,2.139,21.389,2.139,21.389"/>
+</g>
+<g id="line2at1972">
+	
+		<path fill="none" stroke="#6CB7F4" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M592.5,820.8c0,0,23.34,6.295,31.119,8.393c21.42,5.776,85.68,23.107,85.68,23.107"/>
+</g>
+<g id="line2at1982">
+	
+		<polyline fill="none" stroke="#6CB7F4" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		580.248,289.476 562.799,348.7 591.772,466.055 	"/>
+</g>
+<g id="line2at1988">
+	
+		<path fill="none" stroke="#6CB7F4" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M604.348,207.676c0,0-9.433,32.014-12.576,42.685c-2.881,9.779-11.524,39.115-11.524,39.115"/>
+</g>
+<g id="line2at2006">
+	
+		<path fill="none" stroke="#6CB7F4" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M612,181.7c0,0-3.079,10.452-4.105,13.936c-0.887,3.01-3.547,12.04-3.547,12.04"/>
+</g>
+<g id="line3at1967">
+	
+		<polyline fill="none" stroke="#ADEA4E" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		385.407,553.608 621.901,588.1 737.2,630.7 	"/>
+</g>
+<g id="line3at1970">
+	
+		<path fill="none" stroke="#ADEA4E" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M737.2,630.7c0,0,14.785,23.307,19.713,31.075c9.726,15.333,38.903,61.332,38.903,61.332"/>
+</g>
+<g id="line3at1979">
+	
+		<path fill="none" stroke="#ADEA4E" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M282.5,538.6c0,0,38.512,5.616,51.35,7.488c12.889,1.88,51.557,7.521,51.557,7.521"/>
+</g>
+<g id="line3at1981">
+	
+		<polyline fill="none" stroke="#ADEA4E" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		795.816,723.107 818.901,759.5 792.1,797.5 	"/>
+</g>
+<g id="line3at1984">
+	
+		<path fill="none" stroke="#ADEA4E" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M792.1,797.5c0,0,21.863,17.796,29.151,23.728C833.314,831.046,869.5,860.5,869.5,860.5"/>
+</g>
+<g id="line4at1985">
+	
+		<polyline fill="none" stroke="#F2A25A" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		732.077,632.569 943.5,541.9 984.206,590.535 	"/>
+</g>
+<g id="line4at1987">
+	
+		<path fill="none" stroke="#F2A25A" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M984.206,590.535c0,0,13.954,16.674,18.605,22.231c4.422,5.283,17.689,21.134,17.689,21.134"/>
+</g>
+<g id="line4at1991">
+	
+		<polyline fill="none" stroke="#F2A25A" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		572.058,612.437 658.401,622 689.799,650.7 732.077,632.569 	"/>
+</g>
+<g id="line4at1997c">
+	
+		<path fill="none" stroke="#F2A25A" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M572.058,612.437c0,0-13.326-33.374-17.769-44.498c-9.423-23.596-37.69-94.383-37.69-94.383"/>
+</g>
+<g id="line4at1999c">
+	
+		<polyline fill="none" stroke="#F2A25A" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		516.599,473.556 427.7,459.8 418.291,363.966 	"/>
+</g>
+<g id="line4at2005c">
+	
+		<path fill="none" stroke="#F2A25A" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M418.291,363.966c0,0-2.941-29.959-3.921-39.945c-0.842-8.58-3.37-34.32-3.37-34.32"/>
+
+</g>	
+<g id="line5at2008">
+	
+		<path fill="none" stroke="#D493F9" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M658.649,699.754c0,0-18.909-31.661-25.211-42.215c-3.409-5.71-13.639-22.839-13.639-22.839"/>
+</g>
+<g id="line5at2009">
+	
+		<path fill="none" stroke="#D493F9" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M619.799,634.7c0,0-15.098-7.04-20.13-9.387c-6.902-3.22-27.611-12.877-27.611-12.877"/>
+</g>
+<g id="line5at2012">
+	
+		<path fill="none" stroke="#D493F9" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M697.913,765.5c0,0-23.444-39.257-31.259-52.343c-2.001-3.351-8.005-13.403-8.005-13.403"/>
+</g>
+</g>
+<!--<g id="line5" display="none">
+	
+		<polyline display="inline" fill="none" stroke="#D493F9" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		571.5,611.3 516.599,473.556 427.7,459.8 411,289.7 	"/>
+</g>-->
+<g id="y1955">
+	
+		<rect x="520.942" y="665.956" transform="matrix(-0.95 0.3122 -0.3122 -0.95 1227.5906 1138.7891)" fill="#770000" width="3.4" height="3.4"/>
+	
+		<rect x="471.899" y="682.581" transform="matrix(-0.95 0.3122 -0.3122 -0.95 1137.1455 1186.5181)" fill="#770000" width="3.4" height="3.4"/>
+	
+		<rect x="443.054" y="745.914" transform="matrix(-0.4021 0.9156 -0.9156 -0.4021 1308.1007 640.9996)" fill="#770000" width="3.4" height="3.4"/>
+	
+		<rect x="430.365" y="775.707" transform="matrix(-0.4022 0.9156 -0.9156 -0.4022 1317.5951 694.4911)" fill="#770000" width="3.399" height="3.398"/>
+</g>
+<g id="y1955t">
+	
+		<rect id="y1955t1" x="573.492" y="648.339" transform="matrix(-0.95 0.3122 -0.3122 -0.95 1324.5647 1088.0322)" fill="#770000" width="3.4" height="3.4"/>
+	
+		<rect id="y1955t2" x="655.034" y="620.841" transform="matrix(-0.95 0.3122 -0.3122 -0.95 1474.9893 1008.9549)" fill="#770000" width="3.4" height="3.4"/>
+	
+		<rect id="y1955t3" x="685.034" y="610.841" transform="matrix(-0.95 0.3122 -0.3122 -0.95 1530.3683 980.0894)" fill="#770000" width="3.4" height="3.4"/>
+</g>
+<g id="y1956t">
+	
+		<rect x="617.575" y="633.609" transform="matrix(-0.95 0.3122 -0.3122 -0.95 1405.9292 1045.5458)" fill="#770000" width="3.4" height="3.4"/>
+</g>
+<g id="y1958">
+	
+		<rect x="715.568" y="586.491" transform="matrix(-0.9986 0.0526 -0.0526 -0.9986 1464.4677 1137.8589)" fill="#770000" width="3.399" height="3.399"/>
+	
+		<rect x="713.027" y="529.41" transform="matrix(-0.9986 0.0529 -0.0529 -0.9986 1456.5295 1023.6965)" fill="#770000" width="3.399" height="3.4"/>
+</g>
+<g id="y1961">
+	
+		<rect x="577.333" y="684.451" transform="matrix(-0.0971 -0.9953 0.9953 -0.0971 -47.6607 1329.064)" fill="#255677" width="3.4" height="3.399"/>
+	
+		<rect x="580.673" y="716.042" transform="matrix(-0.0971 -0.9953 0.9953 -0.0971 -75.4377 1367.0454)" fill="#255677" width="3.4" height="3.399"/>
+	
+		<rect x="583.695" y="748.314" transform="matrix(-0.0971 -0.9953 0.9953 -0.0971 -104.2423 1405.4597)" fill="#255677" width="3.4" height="3.401"/>
+	
+		<rect x="586.656" y="777.13" transform="matrix(-0.0971 -0.9953 0.9953 -0.0971 -129.6901 1440.0001)" fill="#255677" width="3.401" height="3.399"/>
+	
+		<rect x="574.078" y="650.462" transform="matrix(-0.9942 0.1077 -0.1077 -0.9942 1218.421 1238.5485)" fill="#255677" width="3.402" height="3.402"/>
+	
+		<rect x="573.491" y="645.895" transform="matrix(0.1195 0.9928 -0.9928 0.1195 1149.428 -0.8469)" fill="#770000" width="3.4" height="3.4"/>
+</g>
+<g id="y1963">
+	
+		<rect x="600.02" y="504.825" transform="matrix(-0.235 -0.972 0.972 -0.235 250.7547 1210.4126)" fill="#255677" width="3.4" height="3.4"/>
+	
+		<rect x="590.421" y="466.017" transform="matrix(-0.2355 -0.9719 0.9719 -0.2355 277.0048 1153.333)" fill="#255677" width="3.4" height="3.4"/>
+</g>
+<g id="y1963t">
+	
+		<rect id="y1963t1" x="619.87" y="586.039" transform="matrix(-0.2323 -0.9727 0.9727 -0.2323 194.2668 1328.8181)" fill="#255677" width="3.402" height="3.4"/>
+	
+		<rect id="y1963t2" x="570.43" y="612.082" transform="matrix(-0.106 -0.9944 0.9944 -0.106 22.4229 1247.7261)" fill="#255677" width="3.401" height="3.401"/>
+</g>
+<g id="y1967">
+	
+		<rect x="385.388" y="552.165" transform="matrix(0.1479 -0.989 0.989 0.1479 -217.9469 854.7587)" fill="#3B5114" width="3.4" height="3.401"/>
+	
+		<rect x="614.625" y="585.696" transform="matrix(0.1477 -0.989 0.989 0.1477 -55.6337 1110.2344)" fill="#3B5114" width="3.4" height="3.399"/>
+	
+		<rect x="682.592" y="609.403" transform="matrix(0.3535 -0.9354 0.9354 0.3535 -129.2716 1035.1484)" fill="#3B5114" width="3.4" height="3.398"/>
+	
+		<rect x="687.179" y="611.07" transform="matrix(0.3535 -0.9354 0.9354 0.3535 -127.8657 1040.5168)" fill="#770000" width="3.4" height="3.398"/>
+</g>
+<g id="y1967t">
+	
+		<rect x="733.629" y="628.326" transform="matrix(0.3537 -0.9354 0.9354 0.3537 -114.0574 1094.9806)" fill="#3B5114" width="3.402" height="3.399"/>
+</g>
+<g id="y1969">
+	
+		<rect x="590.793" y="818.266" transform="matrix(-0.0971 -0.9953 0.9953 -0.0971 -166.0778 1489.2679)" fill="#255677" width="3.4" height="3.401"/>
+</g>
+<g id="y1970">
+	
+		<rect x="768.152" y="680.343" transform="matrix(-0.4974 -0.8675 0.8675 -0.4974 561.0616 1689.1476)" fill="#3B5114" width="3.401" height="3.4"/>
+	
+		<rect x="793.251" y="719.936" transform="matrix(-0.4969 -0.8678 0.8678 -0.4969 563.7725 1770.0924)" fill="#3B5114" width="3.4" height="3.399"/>
+</g>
+<g id="y1972">
+	
+		<rect x="705.461" y="850.327" transform="matrix(0.2678 -0.9635 0.9635 0.2678 -303.125 1305.177)" fill="#255677" width="3.399" height="3.397"/>
+	
+		<rect x="664.858" y="839.204" transform="matrix(0.2677 -0.9635 0.9635 0.2677 -322.0743 1258.0665)" fill="#255677" width="3.4" height="3.399"/>
+</g>
+<g id="y1975">
+	
+		<rect x="707.229" y="395.451" transform="matrix(-0.7209 -0.693 0.693 -0.7209 944.7543 1174.7728)" fill="#770000" width="3.4" height="3.399"/>
+	
+		<rect x="709.417" y="451.119" transform="matrix(-0.9986 0.0525 -0.0525 -0.9986 1445.0458 867.6475)" fill="#770000" width="3.401" height="3.399"/>
+	
+		<rect x="755.212" y="345.936" transform="matrix(-0.7209 -0.693 0.693 -0.7209 1061.6428 1122.8169)" fill="#770000" width="3.4" height="3.399"/>
+	
+		<rect x="770.47" y="330.454" transform="matrix(-0.7209 -0.693 0.693 -0.7209 1098.6311 1106.7494)" fill="#770000" width="3.4" height="3.4"/>
+	
+		<rect x="783.822" y="317.247" transform="matrix(-0.7214 -0.6925 0.6925 -0.7214 1131.3096 1093.0298)" fill="#770000" width="3.401" height="3.4"/>
+</g>
+<g id="y1977">
+	
+		<rect x="410.056" y="821.767" transform="matrix(-0.4022 0.9156 -0.9156 -0.4022 1331.2905 777.6718)" fill="#770000" width="3.399" height="3.4"/>
+	
+		<rect x="347.556" y="848.486" transform="matrix(-0.9398 0.3418 -0.3418 -0.9398 968.0627 1529.7991)" fill="#770000" width="3.4" height="3.399"/>
+</g>
+<g id="y1978">
+	
+		<rect x="814.697" y="285.565" transform="matrix(-0.7209 -0.693 0.693 -0.7209 1205.8506 1060.1504)" fill="#770000" width="3.4" height="3.4"/>
+	
+		<rect x="851.535" y="247.652" transform="matrix(-0.721 -0.693 0.693 -0.721 1295.6001 1020.3901)" fill="#770000" width="3.4" height="3.401"/>
+</g>
+<g id="y1979">
+	
+		<rect x="283.194" y="537.379" transform="matrix(0.1482 -0.989 0.989 0.1482 -290.4563 740.9266)" fill="#3B5114" width="3.4" height="3.4"/>
+</g>
+<g id="y1981">
+	
+		<rect x="816.499" y="756.984" transform="matrix(-0.4979 -0.8672 0.8672 -0.4979 567.6632 1846.0144)" fill="#3B5114" width="3.401" height="3.402"/>
+	
+		<rect x="790.667" y="795.38" transform="matrix(-0.8379 -0.5459 0.5459 -0.8379 1021.185 1897.4554)" fill="#3B5114" width="3.401" height="3.401"/>
+</g>
+<g id="y1982">
+	
+		<rect x="571.091" y="387.793" transform="matrix(-0.235 -0.972 0.972 -0.235 328.7832 1037.7634)" fill="#255677" width="3.4" height="3.4"/>
+	
+		<rect x="561.472" y="348.027" transform="matrix(-0.2354 -0.9719 0.9719 -0.2354 355.8674 979.4062)" fill="#255677" width="3.401" height="3.4"/>
+	
+		<rect x="578.144" y="289.43" transform="matrix(0.2896 -0.9572 0.9572 0.2896 133.2858 761.8339)" fill="#255677" width="3.4" height="3.4"/>
+</g>
+<g id="y1984">
+	
+		<rect x="866.686" y="857.992" transform="matrix(-0.7643 -0.6448 0.6448 -0.7643 977.7944 2076.7354)" fill="#3B5114" width="3.399" height="3.4"/>
+</g>
+<g id="y1985">
+	
+		<rect x="732.002" y="630.346" transform="matrix(-0.3964 -0.9181 0.9181 -0.3964 444.2873 1556.1892)" fill="#934200" width="3.4" height="3.4"/>
+	
+		<rect x="876.228" y="568.473" transform="matrix(-0.3963 -0.9181 0.9181 -0.3963 702.3741 1602.1786)" fill="#934200" width="3.401" height="3.4"/>
+	
+		<rect x="942.629" y="541.225" transform="matrix(-0.6216 -0.7833 0.7833 -0.6216 1106.0414 1620.1316)" fill="#934200" width="3.4" height="3.4"/>
+	
+		<rect x="981.65" y="587.349" transform="matrix(-0.622 -0.783 0.783 -0.622 1133.6998 1725.4258)" fill="#934200" width="3.401" height="3.4"/>
+	
+		<rect x="736.491" y="628.326" transform="matrix(-0.3962 -0.9182 0.9182 -0.3962 452.2018 1557.4243)" fill="#3B5114" width="3.401" height="3.4"/>
+</g>
+<g id="y1987">
+	
+		<rect x="1017.917" y="630.939" transform="matrix(-0.6216 -0.7833 0.7833 -0.6216 1157.854 1824.5868)" fill="#934200" width="3.4" height="3.4"/>
+</g>
+<g id="y1988">
+	
+		<rect x="593.674" y="236.609" transform="matrix(0.2901 -0.957 0.957 0.2901 194.6026 738.9519)" fill="#255677" width="3.4" height="3.4"/>
+	
+		<rect x="602.174" y="207.61" transform="matrix(0.2901 -0.957 0.957 0.2901 228.3887 726.4998)" fill="#255677" width="3.4" height="3.4"/>
+</g>
+<g id="y1991">
+	
+		<rect x="649.941" y="619.662" transform="matrix(0.1034 -0.9946 0.9946 0.1034 -33.7697 1205.2625)" fill="#934200" width="3.4" height="3.401"/>
+	
+		<rect x="688.835" y="648.403" transform="matrix(-0.3963 -0.9181 0.9181 -0.3963 367.3308 1541.7375)" fill="#934200" width="3.401" height="3.4"/>
+	
+		<rect x="654.755" y="620.251" transform="matrix(0.104 -0.9946 0.9946 0.104 -30.374 1210.1858)" fill="#770000" width="3.4" height="3.399"/>
+</g>
+<g id="y1991t">
+	
+		<rect id="y1991t1" x="572.297" y="611.083" transform="matrix(0.1034 -0.9946 0.9946 0.1034 -94.8527 1120.342)" fill="#934200" width="3.4" height="3.401"/>
+	
+		<rect id="y1991t2" x="577.234" y="611.661" transform="matrix(0.1034 -0.9946 0.9946 0.1034 -91.0008 1125.7715)" fill="#255677" width="3.4" height="3.401"/>
+</g>
+<g id="y1997c">
+	
+		<rect x="527.918" y="504.857" transform="matrix(-0.3481 -0.9375 0.9375 -0.3481 239.1022 1179.3831)" fill="#934200" width="3.4" height="3.4"/>
+	
+		<rect x="515.454" y="473.471" transform="matrix(-0.3477 -0.9376 0.9376 -0.3477 251.4365 1125.2695)" fill="#934200" width="3.399" height="3.398"/>
+</g>
+<g id="y1999c">
+	
+		<rect x="424.624" y="443.494" transform="matrix(-0.0864 -0.9963 0.9963 -0.0864 19.6509 908.4064)" fill="#934200" width="3.4" height="3.399"/>
+	
+		<rect x="416.685" y="363.964" transform="matrix(-0.0864 -0.9963 0.9963 -0.0864 90.2567 814.0925)" fill="#934200" width="3.4" height="3.399"/>
+</g>
+<g id="y2005c">
+	
+		<rect x="409.524" y="290.342" transform="matrix(-0.0862 -0.9963 0.9963 -0.0862 155.7042 726.9008)" fill="#934200" width="3.4" height="3.399"/>
+</g>
+<g id="y2006">
+	
+		<rect x="609.575" y="182.333" transform="matrix(0.2901 -0.957 0.957 0.2901 257.8326 715.6375)" fill="#255677" width="3.4" height="3.4"/>
+</g>
+<g id="y2008">
+	
+		<rect x="656.077" y="696.594" transform="matrix(0.8407 -0.5414 0.5414 0.8407 -273.3268 467.3573)" fill="#4D0E75" width="3.4" height="3.402"/>
+</g>
+<g id="y2008t">
+	
+		<rect x="618.582" y="633.776" transform="matrix(0.873 -0.4878 0.4878 0.873 -231.1714 383.2718)" fill="#4D0E75" width="3.4" height="3.4"/>
+	
+		<rect x="620.858" y="637.818" transform="matrix(0.8732 -0.4873 0.4873 0.8732 -232.7183 384.4415)" fill="#770000" width="3.401" height="3.4"/>
+</g>
+<g id="y2009">
+	<g>
+		
+			<rect x="580.06" y="614.783" transform="matrix(0.4279 -0.9038 0.9038 0.4279 -224.3757 878.4762)" fill="#255677" width="3.4" height="3.399"/>
+		
+			<rect x="575.715" y="612.704" transform="matrix(0.4282 -0.9037 0.9037 0.4282 -225.0485 873.1519)" fill="#934200" width="3.401" height="3.399"/>
+		
+			<rect x="571.179" y="610.613" transform="matrix(0.4282 -0.9037 0.9037 0.4282 -225.7538 867.8574)" fill="#4D0E75" width="3.401" height="3.4"/>
+	</g>
+	
+		<rect x="613.881" y="631.347" transform="matrix(0.4251 -0.9051 0.9051 0.4251 -219.1141 921.0994)" fill="#4D0E75" width="3.4" height="3.401"/>
+	
+		<rect x="618.085" y="633.306" transform="matrix(0.4256 -0.9049 0.9049 0.4256 -218.6198 925.5951)" fill="#770000" width="3.401" height="3.4"/>
+</g>
+<g id="y2010">
+	
+		<rect x="639.873" y="669.474" transform="matrix(0.8407 -0.5414 0.5414 0.8407 -261.2235 454.2646)" fill="#4D0E75" width="3.4" height="3.402"/>
+</g>
+<g id="y2011">
+	
+		<rect x="561.803" y="589.662" transform="matrix(-0.3482 -0.9374 0.9374 -0.3482 205.3546 1325.5103)" fill="#4D0E75" width="3.399" height="3.4"/>
+</g>
+<g id="y2012">
+	
+		<rect x="673.41" y="725.427" transform="matrix(0.8407 -0.5414 0.5414 0.8407 -286.1776 481.334)" fill="#4D0E75" width="3.4" height="3.402"/>
+	
+		<rect x="695.201" y="762.011" transform="matrix(0.8407 -0.5414 0.5414 0.8407 -302.5152 498.9589)" fill="#4D0E75" width="3.4" height="3.402"/>
+</g>
+<g id="samplesq" display="none">
+	
+		<rect x="563.454" y="500.487" transform="matrix(-0.3477 -0.9376 0.9376 -0.3477 290.7954 1206.6833)" display="inline" fill="#4D0E75" width="3.399" height="3.398"/>
+</g>
+<g id="sampleline" display="none">
+	
+		<polyline display="inline" fill="none" stroke="#D493F9" stroke-width="7.5445" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		711.913,845.5 633.799,714.7 585.5,691.3 527.901,546.8 441.7,539.8 425,369.7 	"/>
+</g>
+
+	<g id="river">
+		<g>
+			<path fill="none" stroke="#46ECFF" stroke-width="31.7182" stroke-miterlimit="10" d="M503.401,530.1
+				C430,534.1,401.5,616.5,362.7,645c-39.5,29.1-109.1,27-142,4.1c-38.1-26.5-73.4-84.1-18.4-141.1c32.1-33.2,79.8-49.4,114.2-36.9
+				C363.4,488.2,422.9,521.7,453.1,526.2c36.699,5.398,172.102,7,205.301,19.8c28.1,10.9,73,26.2,121.199,6.6
+				c61-24.898,83.699,160.5,90,182.602"/>
+			<path fill="none" stroke="#46ECFF" stroke-width="31.7182" stroke-miterlimit="10" d="M293.6,466.1
+				c55.3-32.6,75.9-55.5,216.301-55.5c56,0,122,13.4,153.898,53.4c15.102,19,9.699,76.9,10.299,88.5"/>
+			<path fill="none" stroke="#46ECFF" stroke-width="31.7182" stroke-miterlimit="10" d="M484.2,411.6c0,0,4,70.101-91.7,96.4"/>
+		</g>
+	</g>
+
+</svg>
+
+</div>
+
+
+<div id="centered3"><p id="start">Start scrolling slowly to reveal the map</p></div>
+<div id="ground"></div>
+
+
+<div id="centered2">
+
+<svg id="lines2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1207.333px" height="158px" viewBox="362.167 149.833 1207.333 158" enable-background="new 362.167 149.833 1207.333 158"
+	 xml:space="preserve">
+
+<g id="uline1at1955">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		997.3,258.5 934.3,251.1 871.2,258 808.2,261.9 745.2,257.2 682.1,246.3 619.1,243.3 556.1,177.6 	"/>
+</g>
+<g id="uline1at1958">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1123.401,277.4 1060.299,276.2 997.3,258.5 	"/>
+</g>
+<g id="uline1at1975">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1438.5,266.4 1375.5,267.3 1312.5,270 1249.401,266.4 1186.401,270 1123.401,277.4 	"/>
+</g>
+<g id="uline1at1977">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		556.1,177.6 493,168.6 428.8,168.4 	"/>
+</g>
+<g id="uline1at1978">
+	
+		<polyline fill="none" stroke="#F48C8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1565.799,154.6 1501.6,266.4 1438.5,266.4 	"/>
+</g>
+<g id="uline2at1961">
+	
+		<polyline fill="none" stroke="#6CB7F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		808.2,261.9 745.2,223 682.1,216.2 619.1,216.2 556.1,216 	"/>
+</g>
+<g id="uline2at1963">
+	
+		<polyline fill="none" stroke="#6CB7F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1060.299,248.1 997.3,248.1 934.3,264 871.2,251.8 808.2,261.9 	"/>
+</g>
+<g id="uline2at1969">
+	<path fill="none" stroke="#6CB7F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M556.1,216c0,0-26.599-3.836-35.466-5.114C513.725,209.89,493,206.9,493,206.9"/>
+</g>
+<g id="uline2at1972">
+	
+		<polyline fill="none" stroke="#6CB7F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		493,206.9 430,193.5 365.6,155.4 	"/>
+</g>
+<g id="uline2at1982">
+	
+		<polyline fill="none" stroke="#6CB7F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1249.401,264.6 1186.401,271 1123.401,271 1060.299,248.1 	"/>
+</g>
+<g id="uline2at1988">
+	
+		<polyline fill="none" stroke="#6CB7F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1375.5,267.3 1312.5,258.3 1249.401,264.6 	"/>
+</g>
+<g id="uline2at2006">
+	<path fill="none" stroke="#6CB7F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M1440.299,153.3c0,0-24.385,42.9-32.513,57.2c-8.071,14.2-32.286,56.8-32.286,56.8"/>
+</g>
+<g id="uline3at1967">
+	
+		<polyline fill="none" stroke="#ADEA4E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1060.299,248.1 997.3,242.8 934.3,252.7 871.2,265.4 	"/>
+</g>
+<g id="uline3at1970">
+	
+		<polyline fill="none" stroke="#ADEA4E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1186.401,267.3 1123.401,261.8 1060.299,248.1 	"/>
+</g>
+<g id="uline3at1979">
+	<path fill="none" stroke="#ADEA4E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M871.2,265.4c0,0-33.782,7.541-45.043,10.055C821.067,276.591,805.8,280,805.8,280"/>
+</g>
+<g id="uline3at1981">
+	
+		<polyline fill="none" stroke="#ADEA4E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1312.5,261.2 1249.401,278.8 1186.401,267.3 	"/>
+</g>
+<g id="uline3at1984">
+	<path fill="none" stroke="#ADEA4E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M1377.7,152.6c0,0-32.822,54.671-43.764,72.895c-5.359,8.927-21.437,35.706-21.437,35.706"/>
+</g>
+<g id="uline4at1985">
+	
+		<polyline fill="none" stroke="#F2A25A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		493.052,274.4 556.052,259.9 619.052,259.6 682.154,258 	"/>
+</g>
+<g id="uline4at1987">
+	<path fill="none" stroke="#F2A25A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M429.953,259.9c0,0,23.521,5.404,31.362,7.206c7.934,1.823,31.737,7.294,31.737,7.294"/>
+</g>
+<g id="uline4at1991">
+	
+		<polyline fill="none" stroke="#F2A25A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		682.154,258 745.153,270 808.153,260.5 875.253,258 	"/>
+</g>
+<g id="uline4at1999t">
+	
+		<polyline fill="none" stroke="#F2A25A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1060.45,258 1123.45,239.5 1190.865,261.55 	"/>
+</g>
+<g id="uline4at1997t">
+	
+		<polyline fill="none" stroke="#F2A25A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		875.253,258 997.348,265.1 1060.45,258 	"/>
+</g>
+<g id="uline4at2005t">
+	<path fill="none" stroke="#F2A25A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M1190.865,261.55c0,0,32.637,12.938,43.516,17.25c4.667,1.85,18.668,7.4,18.668,7.4"/>
+</g>
+<g id="uline5at2009c">
+	
+		<polyline fill="none" stroke="#D493F9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		1253.049,286.2 1186.45,259.8 1123.45,239.5 1060.45,258 997.348,265.1 934.349,305 871.349,276.9 	"/>
+</g>
+<g id="uline5at2008">
+	
+		<polyline fill="none" stroke="#D493F9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		808.249,253.5 745.249,259.6 682.249,259.6 	"/>
+</g>
+<g id="uline5at2009">
+	<path fill="none" stroke="#D493F9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M871.349,276.9c0,0-23.862-8.85-31.816-11.799c-7.821-2.9-31.283-11.602-31.283-11.602"/>
+</g>
+<g id="uline5at2012">
+	
+		<polyline fill="none" stroke="#D493F9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		682.249,259.6 619.148,267.3 553.549,267.3 	"/>
+</g>
+</svg>
+
+
+</div>
+
+
+
+		
+
+
+
+
+
+	</body>
+</html>
