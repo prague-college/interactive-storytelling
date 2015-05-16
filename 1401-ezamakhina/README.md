@@ -1,10 +1,0 @@
-1401-interactive-story-ezamakhina
-=================================
-
-### Reflective ReportThe idea of "The Diary" project came from the fact that i used to kept the hard copy diary where I glued all the stuff I've made or liked: my own photos, drawings, herbarium and etc. 
-This project is a try to move the same feeling and mood to a different media. To make it interactive and include new features that were impossible to place into the paper. Also, i'm interested in video making and it takes a part in my art. 
-So this is what I've missed in my hard copy diary. Videos — as a short sketches from memory and music helps to creates the feelings.For me it was a bit difficult to get to the core of programming techniques and remember how to use most of the scripts, so 've tried not to risk and just play a bit with what I know for sure. The help of patient teacher was very useful. The only thing, teacher decided to relieve my life and showed me how to use a link to css style shit. At first I was very happy, but later I've realized that this technique is not suited for me for this type of project. Because there were too many details and I returned it all back. But I'll remember it and may use it for a future. 
-For the answers I've searched various blogs and forums. But since my project is quite simple, how to fix most of my issues we were taught in the lectures. 
-"The Diary" project is endless and has no limits.It's completely useless, but as the teacher said, "it's is like a poem." This is exactly the way I would like it to be perceived.Despite the fact that I don't feel absolutely familiar with the programming, this project I've really liked and it was fun to do it. Of course, I did not have enough time to do everything exactly as I intended, but I would like to continue it in my their spare time. Actually, it was inspiring. 
-#### 13 November 2014
-#### Evdokia Zamakhina
