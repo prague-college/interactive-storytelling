@@ -1,0 +1,325 @@
+body{
+	padding:0;
+	margin:0;
+	border: 0;
+}
+
+.content {
+	width: 900px;
+	margin: 0 auto;
+	position:relative;
+}
+
+.singlepage img{
+	position:absolute;
+}
+
+/*.hiddentext {
+	display: none;
+}
+*/
+
+#screen1 {
+	height: 640px;
+	background:url('images/skywithstars.jpg') repeat-x center;
+}
+
+#screen2 {
+	height: 640px;
+	background:url('images/skywithstars.jpg') repeat-x center;
+}
+
+#hoverstar2 {
+	top: 150px;
+	left: 236px;
+}
+
+#screen2text {
+	top: 0px;
+	left: -100px;
+	status: hidden;
+}
+
+#screen3 {
+	height: 630px;
+	background:url('images/skywithblackground.jpg') repeat-x center;
+}
+
+#firstmoon {
+	top: 0px;
+	left: -100px;
+}
+
+#palmtree {
+	top: 0px;
+	left: -100px;
+}
+
+#hoverstar3 {
+	top: 155px;
+	left: 550px;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+#screen3text {
+	top: 0px;
+	left: -100px;
+	z-index: 1000;
+}
+
+#screen4 {
+	height: 640px;
+	background:url('images/skywithbigstars.jpg') repeat-x center;
+}
+
+#clock {
+	top: 100px;
+	left: 600px;
+}
+
+#giraffesemitransparent {
+	top: -20px;
+	left: -300px;
+}
+
+#screen4text {
+	top: 50px;
+	left: 10px;
+}
+
+#screen5 {
+	height: 640px;
+	background:url('images/skywithbigstarsonelate.jpg') repeat-x center;
+}
+
+#giraffewithoutspots{
+	top: -30px;
+	left: -40px;
+}
+
+#screen5text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen6 {
+	height: 640px;
+	background:url('images/dayskywithground.jpg') repeat-x center;
+}
+
+#giraffeturninghead{
+	top: 220px;
+	left: 300px;
+}
+
+#screen6text {
+	top: -40px;
+	left: -100px;
+}
+
+#screen7 {
+	height: 600px;
+	background:url('images/city-lights-gif.gif') repeat-x center;
+}
+
+#giraffeinthecity {
+	top: 220px;
+	left: 130px;
+}
+
+#lamp {
+	top: -50px;
+	left: -30px;
+}
+
+#screen7text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen8 {
+	height:640px;
+	background:url('images/yellowskywithdesert.jpg') repeat-x center;
+}
+
+#giraffeprowling8 {
+	top: 280px;
+	left: 480px;
+}
+
+#lamp2 {
+	top: -1px;
+	left: -30px;
+}
+
+#coyote {
+	top: -46px;
+	left: 80px;
+}
+
+#screen8text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen9 {
+	height: 1150px;
+	background:url('images/forest.jpg') repeat-x center;
+}
+
+#giraffeprowling9 {
+	top: 830px;
+	left: 100px;
+}
+
+#screen9text {
+	top: 1000px;
+	left: 500px;
+}
+
+#screen10 {
+	height: 640px;
+	background:url('images/jungle2.jpg') repeat-x center;
+}
+
+#giraffehead {
+	top: 0px; 
+	left: -24px;
+}
+
+#giraffeneck {
+	top: 0px; 
+	left: -24px;
+}
+
+#giraffebody {
+	top: 0px; 
+	left: -25px;
+}
+
+#screen10text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen11 {
+	height: 640px;
+	background:url('images/river.jpg') repeat-x center;
+}
+
+#screen12 {
+	height: 640px;
+	background:url('images/hill.jpg') repeat-x center;
+}
+
+#giraffeclimbing {
+	top: 0px; 
+	left: -15px;
+}
+
+#screen12text {
+	top: 0px;
+	left: -80px;
+}
+
+#screen13 {
+	height: 640px;
+	background:url('images/ground.jpg') repeat-x center;
+}
+
+#giraffedigging {
+	top: 0px; 
+	left: -27px;
+}
+
+#screen13text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen14 {
+	height: 640px;
+	background:url('images/send.jpg') repeat-x center;
+}
+
+#giraffewithshadow {
+	top: 0px; 
+	left: -27px;
+}
+
+#screen14text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen15 {
+	height: 640px;
+	background:url('images/clouds1.jpg') repeat-x center;
+}
+
+#headinclouds {
+	top: 0px; 
+	left: -27px;
+}
+
+#neckinclouds {
+	top: 0px; 
+	left: -27px;
+}
+
+#screen15text {
+	top: 0px;
+	left: 10px;
+}
+
+#screen16{
+	height: 640px;
+	background:url('images/clouds2.jpg') repeat-x center;
+}
+
+#bodyinclouds {
+	top: 0px; 
+	left: -27px;
+}
+
+#screen16text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen17{
+	height: 640px;
+	background:url('images/skywithgroundbottomtop.jpg') repeat-x center;
+}
+
+#smillinggiraffe {
+	top: 0px; 
+	left: -27px;
+}
+
+#screen17text {
+	top: 20px;
+	left: -100px;
+}
+
+#screen18{
+	height: 632px;
+	background:url('images/prefinalscreen.jpg') repeat-x center;
+}
+
+#moon {
+	top: -10px; 
+	left: -27px;
+}
+
+#screen19text {
+	top: 0px;
+	left: -100px;
+}
+
+#screen19{
+	height: 640px;
+	background:url('images/black.jpg') repeat-x center;
+}
+

@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.1.1.js"></script>
+    
+    <style>
+        #x {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+         #layers {
+             position: absolute;
+             top: 0;
+             bottom: 0;
+             left: 50%;
+             margin-left: -960px;
+             width: 1920px;
+         }
+
+        #layers div {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #info {
+            position: fixed;
+			font-size: 48px;
+			font-family: arial;
+			color: black;
+        }
+
+        #info2 {
+            position: fixed;
+			font-size: 48px;
+			font-family: arial;
+			color: black;
+			right: 0;
+        }
+	
+		#object {
+		width: 128px;
+		left: 50%;
+		margin-left: -64px;
+		bottom: 200px;
+		position: fixed;
+		}
+		
+    </style>
+
+    <script type="text/javascript">
+        var speed = 2;
+        var altitude = 0;
+        var updateInterval = 20;
+
+        var layers = [
+                 
+			{
+                speed: 1.0,
+                textureHeight: 10000,
+				defaultTexture: '29_dark',
+                
+				opacity: 1.0,
+                textures: [
+                    { start: 29, end: 1000, texture: '29_dark' }
+                ],
+                lastTopIndex: 0,
+                lastBottomIndex: 0
+            },
+			
+			
+			
+			{
+                speed: 0.01,
+                textureHeight: 2000,
+				defaultTexture: 'stars',
+                
+				opacity: 1.0,
+                textures: [
+                    { start: 29, end: 1000, texture: 'stars' }
+                ],
+                lastTopIndex: 0,
+                lastBottomIndex: 0
+            },
+            
+			{
+                speed: 1.0,
+                textureHeight: 10000,
+                defaultTexture: '22',
+                opacity: 1.0,
+                
+				textures: [
+				{start:1,end:1,texture: '1'},{start:2,end:2,texture: '2'},{start:3,end:3,texture: '3'},{start:4,end:4,texture: '4'},{start:5,end:5,texture: '5'},{start:6,end:6,texture: '6'},{start:7,end:7,texture: '7'},{start:8,end:9,texture: '8'},{start:10,end:10,texture: '10'},{start:11,end:11,texture: '11'},{start:12,end:12,texture: '12'},{start:13,end:13,texture: '13'},{start:14,end:14,texture: '14'},{start:15,end:15,texture: '15'},{start:16,end:16,texture: '18'},{start:17,end:22,texture: '19'},{start:23,end:23,texture: '23'},{start:24,end:24,texture: '24'},{start:25,end:25,texture: '25'},{start:26,end:26,texture: '26'},{start:27,end:27,texture: '27'},{start:28,end:28,texture: '28'},{start:29,end:29,texture: '29'},{start:30,end:30,texture: '30'},{start:31,end:31,texture: '31'},{start:32,end:32,texture: '32'},{start:33,end:33,texture: '33'},{start:34,end:34,texture: '34'},{start:35,end:35,texture: '35'},{start:36,end:36,texture: '36'},{start:37,end:37,texture: '37'},{start:38,end:38,texture: '38'}
+                ],
+                
+				lastTopIndex: 0,
+                lastBottomIndex: 0,
+            }
+			
+		];
+			
+			
+			
+			
+			
+			
+			
+        function FindTexture(layerIndex, index) { 
+            index = -index;
+            
+            for (var i = 0; i < layers[layerIndex].textures.length; i+=1) {
+                var texture = layers[layerIndex].textures[i];
+                if (texture.start <= index && texture.end >= index) {
+                    return texture.texture; 
+                }
+            }
+            
+            return layers[layerIndex].defaultTexture; 
+        }
+
+        function CreateImg(layerIndex, index) { 
+            console.log('CreateImg layerIndex: ' + layerIndex + ', index:' + index);
+            $('#layer' + layerIndex).append('<div class="img' + index + ' img"><img src="Images/' + FindTexture(layerIndex, index) + '.png" /></div>');
+            $('#layer' + layerIndex + ' .img' + index).css('top', index * layers[layerIndex].textureHeight);
+        }
+
+        function DestoryImg(layerIndex, index) { 
+            console.log('DestoryImg layerIndex: ' + layerIndex + ', index:' + index);
+            $('#layer' + layerIndex + ' .img' + index).remove();
+        }
+        
+        function InitLayer(layerIndex) {  
+            layers[layerIndex].lastBottomIndex = ($(window).height() - $(window).height() % layers[layerIndex].textureHeight) / layers[layerIndex].textureHeight;          
+            for (var index = -1; index <= layers[layerIndex].lastBottomIndex + 1; index++) {
+                CreateImg(layerIndex, index);
+            }
+        }
+
+        function Init() {  
+            for (var i = 0; i < layers.length; i++) {
+                $('#layers').append('<div id="layer' + i + '"></div>');
+                $('#layer' + i).css('opacity', layers[i].opacity);
+                InitLayer(i);
+            }
+            
+            $('#x').off('scroll touchmove mousewheel');
+            $(window).bind('mousewheel DOMMouseScroll', function (event) {
+                var value = event.originalEvent.wheelDelta + event.originalEvent.detail;
+			
+                if (value > 0) {
+                    speed+=0.5;
+                } else if(value < 0) {
+                    speed-=0.5;
+                } 
+            });
+
+            setInterval(Update, updateInterval); 
+        }
+        
+        function UpdateLayer(layerIndex) { 
+            var layerAltitude = altitude * layers[layerIndex].speed;
+            var textureHeight = layers[layerIndex].textureHeight; 
+
+            var topIndex = (layerAltitude - layerAltitude % textureHeight) / textureHeight; 
+            if (topIndex < layers[layerIndex].lastTopIndex) {   
+                CreateImg(layerIndex, topIndex - 1);           
+                layers[layerIndex].lastTopIndex = topIndex;   
+            } else if (topIndex > layers[layerIndex].lastTopIndex) {  
+                DestoryImg(layerIndex, topIndex - 2);    
+                layers[layerIndex].lastTopIndex = topIndex; 
+            }
+
+            var windowHeiht = $(window).height(); 
+            var bottomIndex = (layerAltitude + windowHeiht - (layerAltitude + windowHeiht) % textureHeight) / textureHeight; 
+            if (bottomIndex < layers[layerIndex].lastBottomIndex) { 
+                DestoryImg(layerIndex, bottomIndex + 2); 
+                layers[layerIndex].lastBottomIndex = bottomIndex; 
+            } else if (bottomIndex > layers[layerIndex].lastBottomIndex) { 
+                CreateImg(layerIndex, bottomIndex + 1); 
+                layers[layerIndex].lastBottomIndex = bottomIndex; 
+            }
+            
+            $('#layer' + layerIndex).css('top', -layerAltitude); 
+        }
+
+        function Update() { 
+            altitude -= speed;
+			if(altitude > 0) altitude = 0;
+
+            for (var i = 0; i < layers.length; i+=1) {  
+                UpdateLayer(i);
+            }
+			var temperarure = 0;
+				if (altitude > -140000) temperature = 20-(altitude/140000)*(-76);
+				else if (altitude > -500000) temperature = -56-((altitude+140000)/360000)*(+58);
+				else if (altitude > -850000) temperature = +2-((altitude+500000)/350000)*(-94);
+				else if (altitude > -5000000) temperature = -92-((altitude+850000)/4150000)*(+1492);
+				else if (altitude > -6000000) temperature = +1400-((altitude+5000000)/1000000)*(-1400);
+				
+			var atmosphere_layer = 0;
+				if (altitude > -140000) atmosphere_layer = 'Level1: Troposphere';
+				else if (altitude > -500000) atmosphere_layer = 'Level2: Stratosphere';
+				else if (altitude > -850000) atmosphere_layer = 'Level3: Mezosphere';
+				else if (altitude > -5000000) atmosphere_layer = 'Level4: Thermosphere';
+				else if (altitude > -6000000) atmosphere_layer = 'Level5: Exosphere';
+            
+			$('#info').html(atmosphere_layer +'<div id = "height">Height:' + Math.round(-altitude/100)/100 + ' km</div>Speed:' + Math.round((speed/10)*(1000/updateInterval)*3.6)+' km/h<br>Temperature:'+Math.round(temperature)+'°C'); 
+        
+
+if(altitude < -80000 && altitude > -90000) $('#info2').html('Keep going to see stars!');
+else if(altitude < -200000 && altitude > -220000) $('#info2').html('Get ready to stars!');
+else $('#info2').html('');
+}
+
+        $(document).ready(Init); 
+    </script>
+</head>
+<body>
+    
+    <div id="x">
+        <div id="layers"></div>
+    </div>
+    <div id="info"></div>
+
+<div id="info2"></div>
+
+	
+	<div id = "object">
+	<img src = "images/baloon.png">
+	</div>
+
+
+</body>
+</html>
